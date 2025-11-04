@@ -8,3 +8,6 @@ env/
 .env
 venv/
 .venv/
+
+.vscode
+*.log
