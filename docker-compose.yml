@@ -1,0 +1,70 @@
+version: '3.8'
+
+x-healthcheck-nginx-template: &nginxhealthcheck
+  healthcheck:
+    test: ["CMD-SHELL", "nginx -t && wget -q --spider --tries=1 --timeout=2 http://127.0.0.1/nginx_status || exit 1"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 10s
+
+x-healthcheck-fastapi-template: &fastapihealthcheck
+  healthcheck:
+    test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+    start_period: 40s
+
+services:
+  nginx:
+    image: nginx:1.28.0-alpine
+    container_name: scholarx-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - nginx-cache:/var/cache/nginx/r2_images
+    depends_on:
+      fastapi:
+        condition: service_healthy
+    ulimits:
+      nofile:
+        soft: 131072
+        hard: 131072
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETUID
+      - SETGID
+    networks:
+      - proxy-network
+    restart: unless-stopped
+    <<: *nginxhealthcheck
+
+  fastapi:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: scholarx-fastapi
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    networks:
+      - proxy-network
+    restart: unless-stopped
+    <<: *fastapihealthcheck
+
+networks:
+  proxy-network:
+    driver: bridge
+
+volumes:
+  nginx-cache:
+    driver: local

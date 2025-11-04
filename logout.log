@@ -1,0 +1,18 @@
+{"asctime": "2025-11-04T15:34:35+0300", "levelname": "INFO", "name": "root", "message": "Request started: GET /api/v1/home/main/circle.webp from 127.0.0.1"}
+{"asctime": "2025-11-04T15:34:35+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/home/main/circle.webp from 127.0.0.1 - Status: 404 - Duration: 0.28ms"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request started: GET /api/v1/proxy/home/main/dashboard-2x.webp from 127.0.0.1"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request started: GET /api/v1/proxy/home/main/mdash-2x.webp from 127.0.0.1"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request started: GET /api/v1/proxy/home/main/circle.webp from 127.0.0.1"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request started: GET /api/v1/proxy/home/main/mcircle.webp from 127.0.0.1"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET https://scholarx.mypinx.store/home/main/dashboard-2x.webp \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET https://scholarx.mypinx.store/home/main/circle.webp \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET https://scholarx.mypinx.store/home/main/mdash-2x.webp \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "httpx", "message": "HTTP Request: GET https://scholarx.mypinx.store/home/main/mcircle.webp \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/proxy/home/main/dashboard-2x.webp from 127.0.0.1 - Status: 200 - Duration: 67.18ms"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/proxy/home/main/mdash-2x.webp from 127.0.0.1 - Status: 200 - Duration: 68.84ms"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/proxy/home/main/mcircle.webp from 127.0.0.1 - Status: 200 - Duration: 72.91ms"}
+{"asctime": "2025-11-04T15:34:57+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/proxy/home/main/circle.webp from 127.0.0.1 - Status: 200 - Duration: 75.53ms"}
+{"asctime": "2025-11-04T15:36:49+0300", "levelname": "INFO", "name": "root", "message": "Shutting down the ScholarX Image Proxy API..."}
+{"asctime": "2025-11-04T15:36:56+0300", "levelname": "INFO", "name": "root", "message": "Starting up the ScholarX Image Proxy API..."}
+{"asctime": "2025-11-04T15:37:01+0300", "levelname": "INFO", "name": "root", "message": "Request completed: GET /api/v1/home/main/circle1.webp from 127.0.0.1 - Status: 404 - Duration: 0.27ms"}
+{"asctime": "2025-11-04T15:37:16+0300", "levelname": "INFO", "name": "root", "message": "Shutting down the ScholarX Image Proxy API..."}
