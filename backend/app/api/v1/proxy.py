@@ -36,7 +36,12 @@ async def proxy_image(
             "content-type",
             "application/octet-stream"
         ),
-        "Cache-Control": "public, max-age=31536000",
+        # Browser & CDN cache for 1 year, immutable = never revalidate
+        "Cache-Control": "public, max-age=31536000, immutable",
+        # Cloudflare-specific: overrides Cache-Control for Cloudflare edge
+        "CDN-Cache-Control": "max-age=31536000",
+        # Tell browser/CDN this can vary based on Accept header (WebP vs JPEG)
+        "Vary": "Accept",
     }
 
     if "content-length" in r2_response.headers:

@@ -9,7 +9,17 @@ logger = get_logger()
 class RequestLoggingMiddleware(BaseHTTPMiddleware):
     """Middleware to log incoming requests and their durations"""
 
+    EXCLUDED_PATHS = {
+        "/health",
+        "/",
+    }
+
     async def dispatch(self, request: Request, call_next):
+
+        if request.url.path in self.EXCLUDED_PATHS:
+            response = await call_next(request)
+            return response
+
         # Get client IP (handles proxy headers like X-Forwarded-For)
         client_ip = "unknown"
         if request.client:
